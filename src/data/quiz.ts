@@ -3,7 +3,8 @@ import { Quiz } from "../app/models/engines/quiz";
 export const Quizes: Quiz[] = [
     {
         id: "8b7e5f21-2c91-4d83-a6f4-1e9b73c52a10",
-        title: "Conhecimentos Gerais",
+        // title: "Conhecimentos Gerais",
+
         settings: {
             shuffleQuestions: true,
             defaultTimeLimit: 15,

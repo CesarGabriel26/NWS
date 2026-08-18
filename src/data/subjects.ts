@@ -1,4 +1,4 @@
-import { Subject } from "../models/subject";
+import { Subject } from "../app/models/subject";
 
 export const subjects: Subject[] = [
     {

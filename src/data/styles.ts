@@ -1,13 +1,22 @@
+export interface Presentation {
+    label: string,
+    icon: string,
+    action: string,
+    badge: string,
+    border: string,
+    progress: string,
+    button: string
+}
 
-export const activityPresentation: Record<string, any> = {
+export const presentations: Record<string, Presentation> = {
     lesson: {
         label: 'Atividade',
         icon: 'menu_book',
         action: 'Iniciar',
-        badge: 'bg-sky-50 text-sky-700 ring-sky-100',
-        border: 'border-l-sky-400',
-        progress: 'bg-sky-500',
-        button: 'bg-sky-600 text-white hover:bg-sky-700 focus-visible:ring-sky-500',
+        badge: 'bg-orange-50 text-orange-700 ring-orange-100',
+        border: 'border-l-orange-400',
+        progress: 'bg-orange-500',
+        button: 'bg-orange-600 text-white hover:bg-orange-700 focus-visible:ring-orange-500',
     },
     reading: {
         label: 'Leitura',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { subjects } from '../../services/subjects';
+import { subjects } from '../../../data/subjects';
 import { CommonModule } from '@angular/common';
 import { LessonsService } from '../../services/lessons.service';
 import { ActivityCardComponent } from '../../components/activity-card/activity-card.component';

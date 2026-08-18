@@ -1,3 +1,4 @@
+import { Common } from "../common";
 import { Question } from "../common/question";
 import { Reward } from "../common/reward";
 
@@ -30,12 +31,6 @@ export interface QuizSettings {
 
 export interface Quiz {
     id: string;
-
-    title: string;
-    description?: string;
-
-    cover?: string;
-
     settings: QuizSettings;
 
     questions: Question[];

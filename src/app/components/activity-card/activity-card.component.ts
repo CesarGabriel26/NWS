@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Activity, Lesson } from '../../models/lesson';
 
 @Component({
   selector: 'activity-card',
@@ -10,17 +11,17 @@ import { Router } from '@angular/router';
 })
 export class ActivityCardComponent {
 
-  @Input() activity!: any
+  @Input() activity!: Activity | Lesson
 
   constructor(
     private router: Router
   ) { }
 
   onAction() {
-    switch (this.activity.type) {
-      case 'quiz':
-        this.router.navigate([`content/quiz/play/${this.activity.contentId}`])
-        break;
-    }
+    // switch (this.lesson.type) {
+    //   case 'quiz':
+    //     this.router.navigate([`content/quiz/play/${this.lesson.contentId}`])
+    //     break;
+    // }
   }
 }

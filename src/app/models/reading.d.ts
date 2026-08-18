@@ -1,8 +1,8 @@
 import { Common } from "./common";
 
-export interface Reading extends Common {
+export interface Reading {
+    id: string;
     contentPath: string;
     contentType: string;
-
     pages: number
 }

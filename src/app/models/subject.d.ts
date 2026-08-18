@@ -23,4 +23,7 @@ export interface Subject {
     topics: string[];
 
     theme: SubjectTheme;
+
+    // populated:
+    activityCount?: number
 }

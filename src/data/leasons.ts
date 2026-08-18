@@ -1,43 +1,52 @@
-import { Activity } from "../app/models/activity";
+import { Lesson } from "../app/models/lesson";
 
-export const activities: any[] = [
+export const lessons: Lesson[] = [
+
     {
         id: 'quiz-01',
         title: 'Conhecimentos Gerais',
         description: 'Testes seus conhecimentos sobre diversos temas.',
-        type: 'quiz',
         subjectId: 'geral',
-        topic: 'Conhecimentos gerais',
+        topics: ['Conhecimentos gerais'],
 
-        engine: 'quiz',
-        contentId: '8b7e5f21-2c91-4d83-a6f4-1e9b73c52a10',
-        difficulty: 'easy',
+        content: [
+            {
+                id: 'a',
+                title: "Quiz Conhecimentos gerais",
+                subjectId: "",
+                description: 'Testes seus conhecimentos sobre diversos temas.',
+                contentType: 'quiz',
+                contentId: '8b7e5f21-2c91-4d83-a6f4-1e9b73c52a10',
+                position: 0,
+            }
+        ]
     },
     {
         id: 'reading-01',
         title: 'A historia do atomo',
-        description: 'Testes seus conhecimentos sobre diversos temas.',
-        type: 'reading',
-        subjectId: 'geral',
-        topic: 'Conhecimentos gerais',
+        description: 'Acompanhe a historai do atomo junto de um quiz incrivel.',
+        subjectId: 'math',
+        topics: ['Conhecimentos gerais'],
 
-        engine: 'reader',
-        contentId: 'd59c882c-82b4-4124-a17d-dae3028569cf',
-        difficulty: 'easy',
+        content: [
+            {
+                id: 'a',
+                title: "A historia do atomo",
+                subjectId: "",
+                description: "",
+                contentType: 'reading',
+                contentId: 'd59c882c-82b4-4124-a17d-dae3028569cf',
+                position: 0,
+            },
+            {
+                id: 'a',
+                title: "A historai do atomo",
+                subjectId: "",
+                description: 'Testes seus conhecimentos sobre diversos temas.',
+                contentType: 'quiz',
+                contentId: '8b7e5f21-2c91-4d83-a64f4-1e9b73c52a10',
+                position: 0,
+            }
+        ]
     },
-    // {
-    //     id: 'video-01',
-    //     title: 'A historia do atomo',
-    //     description: 'Testes seus conhecimentos sobre diversos temas.',
-    //     type: 'video',
-    //     subjectId: 'geral',
-    //     topic: 'Conhecimentos gerais',
-
-    //     engine: 'youtube-video',
-    //     contentId: '<iframe width="560" height="315" src="https://www.youtube.com/embed/X4x2HtmBEx4?si=nZwyPu_f7AGozaTR"
-    // title="YouTube video player" frameborder="0"
-    // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    // referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-    //     difficulty: 'easy',
-    // }
 ];
