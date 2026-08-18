@@ -49,4 +49,25 @@ export class LessonsService {
 
     return contents
   }
+
+  getContent(id: string): Activity {
+    let contents: Activity[] = []
+
+    const list = this.getAll()
+
+    for (const l of list) {
+      l.content.forEach(i => {
+        const subject = subjects.find(s => s.id === i.subjectId)
+        contents.push({
+          ...i,
+          topics: l.topics,
+          subjectId: l.subjectId,
+          subject: subject,
+          presentation: presentations[i.contentType]
+        })
+      })
+    }
+
+    return contents.find(c => c.id = id)!
+  }
 }

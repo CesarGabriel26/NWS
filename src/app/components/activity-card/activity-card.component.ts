@@ -18,10 +18,16 @@ export class ActivityCardComponent {
   ) { }
 
   onAction() {
-    // switch (this.lesson.type) {
-    //   case 'quiz':
-    //     this.router.navigate([`content/quiz/play/${this.lesson.contentId}`])
-    //     break;
-    // }
+    const a = (this.activity as any)
+    
+    if(!a.contentType) return
+      
+    switch (a.contentType) {
+      case 'quiz':
+        console.log('a');
+        
+        this.router.navigate([`content/quiz/play/${a.contentId}`])
+        break;
+    }
   }
 }

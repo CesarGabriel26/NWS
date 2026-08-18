@@ -3,6 +3,7 @@ import { LessonsService } from '../../../services/lessons.service';
 import { CommonModule } from '@angular/common';
 import { ActivityCardComponent } from '../../../components/activity-card/activity-card.component';
 import { Reading } from '../../../models/reading';
+import { Activity } from '../../../models/lesson';
 
 @Component({
   selector: 'app-readings.components',
@@ -11,7 +12,7 @@ import { Reading } from '../../../models/reading';
   styleUrl: './readings.components.css',
 })
 export class ReadingsComponents {
-  readings = signal<Reading[]>([])
+  readings = signal<Activity[]>([])
 
   constructor(
     private lessonsService: LessonsService
@@ -19,7 +20,7 @@ export class ReadingsComponents {
 
   ngOnInit(): void {
     this.readings.set(
-      [] //this.lessonsService.getActivityCards().filter(a => a.type == 'reading')
+      this.lessonsService.getAllContents().filter(c => c.contentType == 'reading')
     )
   }
 }

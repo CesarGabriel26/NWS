@@ -11,7 +11,7 @@ export const lessons: Lesson[] = [
 
         content: [
             {
-                id: 'a',
+                id: 'f634429f-7af7-473e-a15b-6fd8980c057d',
                 title: "Quiz Conhecimentos gerais",
                 subjectId: "",
                 description: 'Testes seus conhecimentos sobre diversos temas.',
@@ -30,7 +30,7 @@ export const lessons: Lesson[] = [
 
         content: [
             {
-                id: 'a',
+                id: '5084d73f-9d6e-423b-b003-0b451c1bed8c',
                 title: "A historia do atomo",
                 subjectId: "",
                 description: "",
@@ -39,7 +39,7 @@ export const lessons: Lesson[] = [
                 position: 0,
             },
             {
-                id: 'a',
+                id: 'ad9f034b-6cac-4820-985d-844de7caca8b',
                 title: "A historai do atomo",
                 subjectId: "",
                 description: 'Testes seus conhecimentos sobre diversos temas.',

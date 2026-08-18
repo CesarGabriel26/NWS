@@ -2,6 +2,7 @@ import { Component, OnInit, signal } from '@angular/core';
 import { LessonsService } from '../../../services/lessons.service';
 import { ActivityCardComponent } from '../../../components/activity-card/activity-card.component';
 import { Quiz } from '../../../models/engines/quiz';
+import { Activity } from '../../../models/lesson';
 
 @Component({
   selector: 'app-quizes.component',
@@ -10,7 +11,7 @@ import { Quiz } from '../../../models/engines/quiz';
   styleUrl: './quizes.component.css',
 })
 export class QuizesComponent implements OnInit {
-  quizes = signal<Quiz[]>([])
+  quizes = signal<Activity[]>([])
 
   constructor(
     private lessonsService: LessonsService
@@ -18,7 +19,7 @@ export class QuizesComponent implements OnInit {
 
   ngOnInit(): void {
     this.quizes.set(
-      [] //this.lessonsService.getActivityCards().filter(a => a.type == 'quiz')
+      this.lessonsService.getAllContents().filter(c => c.contentType == 'quiz')
     )
   }
 }
