@@ -1,0 +1,40 @@
+<div class="w-full h-full overflow-y-auto">
+    @for (subject of subjects; track $index) {
+    <div class="mx-auto flex max-w-7xl flex-col gap-2 p-4">
+        <div class="flex flex-row gap-2 items-center justify-between w-full">
+            <div class="flex flex-row gap-2 items-center">
+                <div class="flex size-12 items-center justify-center rounded-lg text-[25px]"
+                    [ngClass]="subject.theme.iconBackground">
+                    <span class="material-symbols-outlined" aria-hidden="true">
+                        {{ subject.theme.icon }}
+                    </span>
+                </div>
+                <p class="text-sm font-black uppercas bg-transparent!" [ngClass]="subject.theme.iconBackground">{{
+                    subject.name }}</p>
+
+                <span class="rounded-md px-2.5 py-1 text-xs font-black"
+                    [ngClass]="[subject.theme.softBackground, subject.theme.text]">
+                    {{ subject.progress || 0 }}%
+                </span>
+            </div>
+            <div class="flex flex-row gap-2 items-center">
+                @for (topic of subject.topics; track topic) {
+                <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-600">
+                    {{ topic }}
+                </span>
+                }
+            </div>
+        </div>
+
+        <div class="grid gap-4 lg:grid-cols-2 xl:grid-cols-4 w-full">
+            @for (item of getLeassons(subject.id); track $index) {
+                <activity-card [activity]="item" />
+            } @empty { 
+                <div class="col-span-4 h-50 border-2 border-gray-400 border-dashed flex items-center justify-center text-gray-400">
+                    <span>Nenhuma atividade disponivel ainda</span>
+                </div>
+            }
+        </div>
+    </div>
+    }
+</div>

@@ -1,0 +1,234 @@
+<div class="w-full h-full overflow-y-auto">
+  <!-- <section class="border-b border-slate-200 bg-white">
+    <div class="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_24rem] lg:px-8 lg:py-8">
+      <div class="flex min-w-0 flex-col justify-between gap-6">
+        <div>
+          <div
+            class="inline-flex items-center gap-2 rounded-lg bg-orange-50 px-3 py-2 text-sm font-bold text-orange-700">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">explore</span>
+            Jornada de {{ dashboard.user.name }}
+          </div>
+
+          <h1 class="mt-5 max-w-3xl text-3xl font-black text-slate-950 sm:text-4xl">
+            Aprenda por materia, assunto e desafio.
+          </h1>
+
+          <p class="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+            Escolha uma trilha, continue uma leitura, responda quizzes ou entre em um mini jogo
+            ligado ao conteudo.
+          </p>
+        </div>
+
+        <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          @for (stat of dashboard.stats; track stat.label) {
+          <article class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined flex size-10 items-center justify-center rounded-md text-[21px]"
+                [ngClass]="stat.tone" aria-hidden="true">
+                {{ stat.icon }}
+              </span>
+
+              <div class="min-w-0">
+                <p class="truncate text-sm font-semibold text-slate-500">{{ stat.label }}</p>
+                <p class="mt-1 text-xl font-black text-slate-950">{{ stat.value }}</p>
+              </div>
+            </div>
+          </article>
+          }
+        </div>
+      </div>
+
+      <article
+        class="flex min-h-72 flex-col rounded-lg border border-l-4 border-slate-200 bg-slate-950 p-5 text-white shadow-sm"
+        [ngClass]="dashboard.featured.presentation.border">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <span class="inline-flex items-center gap-2 rounded-md px-2.5 py-1 text-xs font-black ring-1"
+              [ngClass]="dashboard.featured.presentation.badge">
+              <span class="material-symbols-outlined text-[16px]" aria-hidden="true">
+                {{ dashboard.featured.presentation.icon }}
+              </span>
+              {{ dashboard.featured.presentation.label }}
+            </span>
+
+            <h2 class="mt-5 text-2xl font-black">{{ dashboard.featured.title }}</h2>
+          </div>
+
+          <span
+            class="material-symbols-outlined flex size-11 items-center justify-center rounded-lg bg-white/10 text-[24px]"
+            aria-hidden="true">
+            {{ dashboard.featured.subject.theme.icon }}
+          </span>
+        </div>
+
+        <p class="mt-3 flex-1 leading-7 text-slate-300">{{ dashboard.featured.description }}</p>
+
+        <div class="mt-5 grid grid-cols-3 gap-3 text-sm">
+          <div>
+            <span class="block text-slate-400">Materia</span>
+            <strong class="mt-1 block">{{ dashboard.featured.subject.name }}</strong>
+          </div>
+          <div>
+            <span class="block text-slate-400">Tempo</span>
+            <strong class="mt-1 block">{{ dashboard.featured.durationMinutes }} min</strong>
+          </div>
+          <div>
+            <span class="block text-slate-400">XP</span>
+            <strong class="mt-1 block">{{ dashboard.featured.xp }}</strong>
+          </div>
+        </div>
+
+        <button
+          class="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-3 text-sm font-black outline-none transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+          [ngClass]="dashboard.featured.presentation.button" type="button">
+          {{ dashboard.featured.presentation.action }}
+          <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+        </button>
+      </article>
+    </div>
+  </section> -->
+
+  <div class="mx-auto flex max-w-7xl flex-col gap-8 p-4">
+    <section>
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="text-sm font-black uppercase text-emerald-700">Materias</p>
+          <h2 class="mt-1 text-2xl font-black text-slate-950">Trilhas principais</h2>
+        </div>
+        <p class="text-sm font-semibold text-slate-500">Progresso por materia e proximo conteudo</p>
+      </div>
+
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        @for (subject of dashboard.subjects; track subject.id) {
+        <article
+          class="flex min-h-72 flex-col rounded-lg border bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+          [ngClass]="subject.theme.border">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex size-12 items-center justify-center rounded-lg text-[25px]"
+              [ngClass]="subject.theme.iconBackground">
+              <span class="material-symbols-outlined" aria-hidden="true">
+                {{ subject.theme.icon }}
+              </span>
+            </div>
+
+            <span class="rounded-md px-2.5 py-1 text-xs font-black"
+              [ngClass]="[subject.theme.softBackground, subject.theme.text]">
+              {{ subject.progress }}%
+            </span>
+          </div>
+
+          <h3 class="mt-5 text-xl font-black text-slate-950">{{ subject.name }}</h3>
+          <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">{{ subject.description }}</p>
+
+          <div class="mt-4 flex flex-wrap gap-2">
+            @for (topic of subject.topics; track topic) {
+            <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-600">
+              {{ topic }}
+            </span>
+            } 
+          </div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between gap-3 text-xs font-bold text-slate-500">
+              <span>{{ subject.activityCount }} atividades</span>
+              <span class="truncate">{{ subject.nextActivityTitle }}</span>
+            </div>
+            <div class="mt-2 h-2 overflow-hidden rounded-full bg-slate-100">
+              <div class="h-full rounded-full" [ngClass]="subject.theme.progress" [style.width.%]="subject.progress">
+              </div>
+            </div>
+          </div>
+        </article>
+        }
+      </div>
+    </section>
+
+    <section>
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="text-sm font-black uppercase text-sky-700">Atividades</p>
+          <h2 class="mt-1 text-2xl font-black text-slate-950">Continue de onde parou</h2>
+        </div>
+        <p class="text-sm font-semibold text-slate-500">Leituras, quizzes e jogos em andamento</p>
+      </div>
+
+      <div class="mt-4 grid gap-4 lg:grid-cols-2 xl:grid-cols-4">
+        @for (activity of dashboard.continueActivities; track activity.id) {
+            <activity-card [activity]="activity" />
+        }
+      </div>
+    </section>
+
+    <div class="grid gap-8 xl:grid-cols-1">
+      <!-- <section>
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <p class="text-sm font-black uppercase text-violet-700">Quizzes</p>
+            <h2 class="mt-1 text-2xl font-black text-slate-950">Revise por perguntas</h2>
+          </div>
+          <span class="material-symbols-outlined text-[28px] text-violet-600" aria-hidden="true">
+            quiz
+          </span>
+        </div>
+
+        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+          @for (activity of dashboard.quizActivities; track activity.id) {
+          <article class="flex min-h-64 flex-col rounded-lg border border-l-4 border-slate-200 bg-white p-5 shadow-sm"
+            [ngClass]="activity.presentation.border">
+            <span class="w-fit rounded-md px-2.5 py-1 text-xs font-black ring-1"
+              [ngClass]="activity.presentation.badge">
+              {{ activity.subject.name }}
+            </span>
+
+            <h3 class="mt-4 text-lg font-black text-slate-950">{{ activity.title }}</h3>
+            <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">{{ activity.description }}</p>
+
+            <div class="mt-4 flex items-center justify-between text-sm font-bold text-slate-600">
+              <span>{{ activity.durationMinutes }} min</span>
+            </div>
+          </article>
+          }
+        </div>
+      </section> -->
+
+      <section>
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <p class="text-sm font-black uppercase text-amber-700">Mini jogos</p>
+            <h2 class="mt-1 text-2xl font-black text-slate-950">Aprenda jogando</h2>
+          </div>
+          <span class="material-symbols-outlined text-[28px] text-amber-600" aria-hidden="true">
+            stadia_controller
+          </span>
+        </div>
+
+        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+          @for (activity of dashboard.gameActivities; track activity.id) {
+          <article class="flex min-h-64 flex-col rounded-lg border border-l-4 border-slate-200 bg-white p-5 shadow-sm"
+            [ngClass]="activity.presentation.border">
+            <div class="flex items-start justify-between gap-4">
+              <div class=" flex size-11 items-center justify-center rounded-lg text-[23px]"  [ngClass]="activity.subject.theme.iconBackground">
+                <span class="material-symbols-outlined"
+                  aria-hidden="true">
+                  {{ activity.subject.theme.icon }}
+                </span>
+              </div>
+              <span class="rounded-md bg-amber-50 px-2.5 py-1 text-xs font-black text-amber-700">
+                {{ activity.topic }}
+              </span>
+            </div>
+
+            <h3 class="mt-4 text-lg font-black text-slate-950">{{ activity.title }}</h3>
+            <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">{{ activity.description }}</p>
+
+            <div class="mt-4 flex items-center justify-between text-sm font-bold text-slate-600">
+              <!-- <span>{{ getDifficultyLabel(activity.difficulty) }}</span> -->
+              <span>{{ activity.durationMinutes }} min</span>
+            </div>
+          </article>
+          }
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

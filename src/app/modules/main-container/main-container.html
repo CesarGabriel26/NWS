@@ -1,0 +1,38 @@
+<div class="h-dvh w-dvw bg-stone-50 text-slate-950 grid  grid-cols-[18rem_minmax(0,1fr)]">
+    <aside class="hidden min-h-dvh border-r border-slate-200 bg-white p-4 lg:flex lg:flex-col">
+        <a class="flex items-center gap-3 rounded-lg  outline-none" routerLink="/home">
+            <div class="flex size-11 items-center justify-center rounded-lg bg-orange-600 text-[24px] text-white">
+                <span class="material-symbols-outlined" aria-hidden="true">
+                    auto_stories
+                </span>
+            </div>
+
+            <span class="min-w-0">
+                <strong class="block text-base font-black">Escola Novo Mundo</strong>
+                <span class="block text-xs font-medium text-slate-500">Estudos interativos</span>
+            </span>
+        </a>
+
+        <nav class="mt-7 flex flex-col gap-1" aria-label="Navegacao principal">
+            @for (item of navigation; track item.label) {
+            <a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold hover:bg-orange-200 hover:text-orange-500 transition-colors"
+                routerLinkActive="bg-orange-500! text-white! ring-1 ring-orange-100!"
+                [routerLinkActiveOptions]="{ exact: true }" [routerLink]="item.route" ariaCurrentWhenActive="page">
+                <span class="material-symbols-outlined text-[20px]" aria-hidden="true">
+                    {{ item.icon }}
+                </span>
+                <span>{{ item.label }}</span>
+            </a>
+            }
+        </nav>
+
+        <section class="mt-auto">
+           <xp-level-tracker  />
+        </section>
+    </aside>
+
+
+    <main class="min-h-0 p-2">
+        <router-outlet />
+    </main>
+</div>

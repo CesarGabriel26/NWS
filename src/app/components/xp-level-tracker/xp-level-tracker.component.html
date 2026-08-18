@@ -1,0 +1,45 @@
+<section class="rounded-lg border border-orange-100 bg-orange-50 p-2 flex flex-col gap-2">
+
+    @if(display == 'full') {
+    <div class="flex items-center justify-between gap-3">
+        <div class="flex size-10 items-center justify-center rounded-md bg-orange-200 text-[22px] overflow-hidden">
+            <img class="w-full h-full" src="favicon.ico">
+        </div>
+        <div>
+            <p class="mt-1 text-2xl font-black text-orange-700">
+                Nivel {{ displayedLevel() }}
+            </p>
+        </div>
+    </div>
+    }
+
+    @if(display == 'resumed') {
+    <div class="flex items-center justify-between">
+        <span class="text-xs font-bold uppercase text-orange-700">
+            Nivel {{ displayedLevel() }}
+        </span>
+
+        @if(xpGained() > 0) {
+        <span class="text-sm font-black text-emerald-600">
+            +{{ xpGained() }} XP
+        </span>
+        }
+    </div>
+    }
+
+    <div class="flex items-center justify-between text-sm">
+        <span class="font-semibold text-slate-600">
+            {{ displayedXp() }} / {{ displayedXpNeeded() }} XP
+        </span>
+
+        <span class="font-bold text-orange-700">
+            {{ progressPercent().toFixed(0) }}%
+        </span>
+    </div>
+
+    <div class="h-2 overflow-hidden rounded-full bg-white">
+        <div class="h-full rounded-full bg-orange-500 xp-bar-fill" [style.width.%]="progressPercent()">
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,48 @@
+
+export const activityPresentation: Record<string, any> = {
+    lesson: {
+        label: 'Atividade',
+        icon: 'menu_book',
+        action: 'Iniciar',
+        badge: 'bg-sky-50 text-sky-700 ring-sky-100',
+        border: 'border-l-sky-400',
+        progress: 'bg-sky-500',
+        button: 'bg-sky-600 text-white hover:bg-sky-700 focus-visible:ring-sky-500',
+    },
+    reading: {
+        label: 'Leitura',
+        icon: 'menu_book',
+        action: 'Ler',
+        badge: 'bg-sky-50 text-sky-700 ring-sky-100',
+        border: 'border-l-sky-400',
+        progress: 'bg-sky-500',
+        button: 'bg-sky-600 text-white hover:bg-sky-700 focus-visible:ring-sky-500',
+    },
+    video: {
+        label: 'Atividade',
+        icon: 'menu_book',
+        action: 'Iniciar',
+        badge: 'bg-red-50 text-red-700 ring-red-100',
+        border: 'border-l-red-400',
+        progress: 'bg-red-500',
+        button: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500',
+    },
+    quiz: {
+        label: 'Quiz',
+        icon: 'quiz',
+        action: 'Responder quiz',
+        badge: 'bg-violet-50 text-violet-700 ring-violet-100',
+        border: 'border-l-violet-400',
+        progress: 'bg-violet-500',
+        button: 'bg-violet-600 text-white hover:bg-violet-700 focus-visible:ring-violet-500',
+    },
+    game: {
+        label: 'Mini jogo',
+        icon: 'sports_esports',
+        action: 'Jogar agora',
+        badge: 'bg-amber-50 text-amber-700 ring-amber-100',
+        border: 'border-l-amber-400',
+        progress: 'bg-amber-500',
+        button: 'bg-amber-500 text-slate-950 hover:bg-amber-400 focus-visible:ring-amber-500',
+    },
+};

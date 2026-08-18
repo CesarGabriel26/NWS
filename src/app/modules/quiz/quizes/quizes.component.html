@@ -1,0 +1,17 @@
+<div class="w-full h-full overflow-y-auto">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 p-4">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+                <p class="text-sm font-black uppercase text-sky-700">Quizes</p>
+                <h2 class="mt-1 text-2xl font-black text-slate-950">Responsa perguntas sobre temas diversos</h2>
+            </div>
+            <p class="text-sm font-semibold text-slate-500">Te ajudaremos com oq tiver mais dificuldades </p>
+        </div>
+
+        <div class="grid gap-4 lg:grid-cols-2 xl:grid-cols-4">
+            @for (activity of quizes(); track $index) {
+            <activity-card [activity]="activity" />
+            }
+        </div>
+    </div>
+</div>
